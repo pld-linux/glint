@@ -13,7 +13,7 @@ Patch:		glint-make.patch
 BuildRequires:	rpm-devel
 BuildRequires:	python-devel
 Requires:	python >= 1.4, pythonlib >= 1.12, zlib
-BuildRoot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 Glint is a graphical interface to the RPM package management tool. It allows
