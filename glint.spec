@@ -5,8 +5,6 @@ Version:	2.6.1
 Release:	3
 License:	GPL
 Group:		Applications/System
-Group(de):	Applikationen/System
-Group(pl):	Aplikacje/System
 Icon:		rpm.gif
 Source0:	%{name}-%{version}.tar.gz
 Source1:	%{name}.wmconfig
