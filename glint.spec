@@ -10,8 +10,8 @@ Source0:	%{name}-%{version}.tar.gz
 # Source0-md5:	0e50b38644f9082a7bac55da4274f0aa
 Source1:	%{name}.wmconfig
 Patch0:		%{name}-make.patch
-BuildRequires:	rpm-devel
 BuildRequires:	python-devel
+BuildRequires:	rpm-devel
 Requires:	python >= 1.4, pythonlib >= 1.12, zlib
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
