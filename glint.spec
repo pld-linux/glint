@@ -41,7 +41,7 @@ install %{SOURCE1} $RPM_BUILD_ROOT/etc/X11/wmconfig/glint
 
 strip $RPM_BUILD_ROOT/usr/lib/python1.5/lib-dynload/*
 
-gzip -9nf $RPM_BUILD_ROOT/usr/man/man8/*
+gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man8/*
 
 %files
 %defattr(644,root,root,755)
@@ -51,7 +51,7 @@ gzip -9nf $RPM_BUILD_ROOT/usr/man/man8/*
 %attr(755,root,root) /usr/lib/python1.5/lib-dynload/*
 /usr/lib/rhs/glint
 /usr/lib/rhs/control-panel/*
-/usr/man/man8/*
+%{_mandir}/man8/*
 
 %changelog
 * Thu Apr 15 1999 Micha³ Kuratczyk <kura@pld.org.pl>
