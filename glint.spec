@@ -2,7 +2,7 @@ Summary:	Graphical front-end for RPM
 Summary(pl):	Graficzna nak³adka na RPM
 Name:		glint
 Version:	2.6.1
-Release:	1d
+Release:	2d
 Copyright:	GPL
 Group:		Utilities/System
 Group(pl):	Narzêdzia/System
@@ -11,7 +11,7 @@ Source:		%{name}-%{version}.tar.gz
 Source1:	glint.wmconfig
 Patch:		glint-make.patch
 Requires:	python >= 1.4, pythonlib >= 1.12, zlib
-BuildRoot:	/tmp/%{name}-%{version}
+BuildRoot:	/tmp/%{name}-%{version}-root
 
 %description
 Glint is a graphical interface to the RPM package management tool. It allows
@@ -29,6 +29,7 @@ tak¿e mo¿liwo¶æ uaktualniania pakietów i instalowania nowych.
 %patch -p1
 
 %build
+CFLAGS="$RPM_OPT_FLAGS" LDFLAGS=-s \
 make
 
 %install
@@ -56,6 +57,11 @@ gzip -9nf $RPM_BUILD_ROOT/usr/man/man8/*
 %attr(644,root, man) /usr/man/man8/*
 
 %changelog
+* Tue Feb  9 1999 Micha³ Kuratczyk <kurkens@polbox.com>
+  [2.6-2d]
+- added using $RPM_OPT_FLAGS and LDFLAGS=-s
+- sloted BuildRoot into PLD standard
+
 * Mon Jan 25 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [2.6.1-1d]
 - added "rm -rf $RPM_BUILD_ROOT" on top %install.
