@@ -12,7 +12,9 @@ Source1:	%{name}.wmconfig
 Patch0:		%{name}-make.patch
 BuildRequires:	python-devel
 BuildRequires:	rpm-devel
-Requires:	python >= 1.4, pythonlib >= 1.12, zlib
+Requires:	python >= 1.4
+Requires:	pythonlib >= 1.12
+Requires:	zlib
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
