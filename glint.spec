@@ -10,6 +10,8 @@ Icon:		rpm.gif
 Source:		%{name}-%{version}.tar.gz
 Source1:	glint.wmconfig
 Patch:		glint-make.patch
+BuildRequires:	rpm-devel
+BuildRequires:	python-devel
 Requires:	python >= 1.4, pythonlib >= 1.12, zlib
 BuildRoot:	/tmp/%{name}-%{version}-root
 
