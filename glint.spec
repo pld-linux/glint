@@ -2,14 +2,14 @@ Summary:	Graphical front-end for RPM
 Summary(pl):	Graficzna nak³adka na RPM
 Name:		glint
 Version:	2.6.1
-Release:	1
+Release:	1d
 Copyright:	GPL
 Group:		Utilities/System
 Group(pl):	Narzêdzia/System
 Icon:		rpm.gif
 Source:		%{name}-%{version}.tar.gz
-Source1:	%{name}.wmconfig
-Patch:		%{name}-make.patch
+Source1:	glint.wmconfig
+Patch:		glint-make.patch
 Requires:	python >= 1.4, pythonlib >= 1.12, zlib
 BuildRoot:	/tmp/%{name}-%{version}
 
@@ -17,8 +17,7 @@ BuildRoot:	/tmp/%{name}-%{version}
 Glint is a graphical interface to the RPM package management tool. It allows
 you to browse packages installed on your system, verify and query those 
 package. It allows allows you to update packages with new versions and
-install
-new packages.
+install new packages.
 
 %description -l pl
 Glint jest graficznym interfejsem dla RPM. Pozwala na przegl±danie
@@ -33,27 +32,34 @@ tak¿e mo¿liwo¶æ uaktualniania pakietów i instalowania nowych.
 make
 
 %install
+rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT/etc/X11/wmconfig
+
 make install DESTDIR=$RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT/etc/X11/wmconfig
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/X11/wmconfig/glint
 
 strip $RPM_BUILD_ROOT/usr/lib/python1.5/lib-dynload/*
 
-gzip -9nf $RPM_BUILD_ROOT/usr/man/man8/glint.8
+gzip -9nf $RPM_BUILD_ROOT/usr/man/man8/*
 
 %files
-%defattr(644, root, root, 755)
-
-%doc COPYING
+%defattr(644,root,root,755)
 %config(missingok) /etc/X11/wmconfig/glint
 
-%attr(755, root, root) /usr/bin/glint
+%attr(755,root, root) /usr/bin/glint
+
 /usr/lib/rhs/glint
 /usr/lib/rhs/control-panel/*
-%attr(755, root, root) /usr/lib/python1.5/lib-dynload/*
-%attr(644, root, man)  /usr/man/man8/*
+
+%attr(755,root,root) /usr/lib/python1.5/lib-dynload/*
+%attr(644,root, man) /usr/man/man8/*
 
 %changelog
+* Mon Jan 25 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+  [2.6.1-1d]
+- added "rm -rf $RPM_BUILD_ROOT" on top %install.
+- other cosmetic changes.
+
 * Sun Jan 24 1999 Micha³ Kuratczyk <kurkens@polbox.com>
 - built for PLD
