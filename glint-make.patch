@@ -1,0 +1,41 @@
+diff -uNr glint-2.6.1-orig/Makefile glint-2.6.1/Makefile
+--- glint-2.6.1-orig/Makefile	Thu Jul 23 14:23:48 1998
++++ glint-2.6.1/Makefile	Mon Jan 25 16:10:07 1999
+@@ -12,19 +12,24 @@
+ 	rm -f rpmmodule.so rpmmodule.o
+ 
+ install:
+-	install -m755 glint /usr/bin
+-	rm -rf /usr/lib/rhs/glint
+-	mkdir -p /usr/lib/rhs/glint
++	rm -rf $(DESTDIR)/usr/lib/rhs/glint
++	
++	install -d $(DESTDIR)/usr/bin
++	install -d $(DESTDIR)/usr/lib/rhs/glint
++	install -d $(DESTDIR)/usr/lib/rhs/control-panel
++	install -d $(DESTDIR)/usr/lib/python1.5/lib-dynload
++	install -d $(DESTDIR)/usr/man/man8
++	
+ 	for i in lib/*; do \
+-		install -m644 $$i /usr/lib/rhs/glint ;\
++		install -m 644 $$i $(DESTDIR)/usr/lib/rhs/glint ;\
+ 	done
+-	chmod 755  /usr/lib/rhs/glint/glint.py
+-	mkdir -p /usr/lib/rhs/control-panel
+-	install -m 644 glint.xpm /usr/lib/rhs/control-panel
+-	install -m 644 glint.init /usr/lib/rhs/control-panel
+-	mkdir -p /usr/man/man8
+-	install -m 644 glint.8 /usr/man/man8
+-	install -m 755 rpmmodule.so /usr/lib/python1.5/lib-dynload/rpm.so
++	chmod 755  $(DESTDIR)/usr/lib/rhs/glint/glint.py
++	
++	install -m 755 glint $(DESTDIR)/usr/bin
++	install -m 644 glint.xpm $(DESTDIR)/usr/lib/rhs/control-panel
++	install -m 644 glint.init $(DESTDIR)/usr/lib/rhs/control-panel
++	install -m 644 glint.8 $(DESTDIR)/usr/man/man8
++	install -m 755 rpmmodule.so $(DESTDIR)/usr/lib/python1.5/lib-dynload/rpm.so
+ 
+ archive:
+ 	cvs tag -F $(CVSTAG) .
+Binary files glint-2.6.1-orig/rpmmodule.o and glint-2.6.1/rpmmodule.o differ
+Binary files glint-2.6.1-orig/rpmmodule.so and glint-2.6.1/rpmmodule.so differ
