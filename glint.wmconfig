@@ -1,0 +1,5 @@
+glint name "glint"
+glint description "Graphical front-end for RPM"
+glint exec "glint &"
+glint group "Utilities/System"
+
