@@ -4,12 +4,13 @@ Name:		glint
 Version:	2.6.1
 Release:	3
 License:	GPL
-Group:		Utilities/System
-Group(pl):	Narzêdzia/System
+Group:		Applications/System
+Group(de):	Applikationen/System
+Group(pl):	Aplikacje/System
 Icon:		rpm.gif
 Source0:	%{name}-%{version}.tar.gz
-Source1:	glint.wmconfig
-Patch0:		glint-make.patch
+Source1:	%{name}.wmconfig
+Patch0:		%{name}-make.patch
 BuildRequires:	rpm-devel
 BuildRequires:	python-devel
 Requires:	python >= 1.4, pythonlib >= 1.12, zlib
@@ -31,7 +32,7 @@ Daje tak¿e mo¿liwo¶æ uaktualniania pakietów i instalowania nowych.
 %patch -p1
 
 %build
-%{__make} CFLAGS="$RPM_OPT_FLAGS" LDFLAGS=-s
+%{__make} CFLAGS="%{rpmcflags}" LDFLAGS="%{rpmldflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -41,9 +42,8 @@ install -d $RPM_BUILD_ROOT%{_sysconfdir}/X11/wmconfig
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/X11/wmconfig/glint
 
-strip $RPM_BUILD_ROOT%{_libdir}/python1.5/lib-dynload/*
-
-gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man8/*
+%clean
+rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
