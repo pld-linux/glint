@@ -52,21 +52,3 @@ gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man8/*
 %{_libdir}/rhs/glint
 %{_libdir}/rhs/control-panel/*
 %{_mandir}/man8/*
-
-%changelog
-* Thu Apr 15 1999 Micha³ Kuratczyk <kura@pld.org.pl>
-  [2.6-3]
-- removed man group from man pages
-
-* Tue Feb  9 1999 Micha³ Kuratczyk <kura@pld.org.pl>
-  [2.6-2d]
-- added using $RPM_OPT_FLAGS and LDFLAGS=-s
-- sloted BuildRoot into PLD standard
-
-* Mon Jan 25 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [2.6.1-1d]
-- added "rm -rf $RPM_BUILD_ROOT" on top %install.
-- other cosmetic changes.
-
-* Sun Jan 24 1999 Micha³ Kuratczyk <kura@pld.org.pl>
-- built for PLD
