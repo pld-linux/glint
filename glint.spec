@@ -31,13 +31,13 @@ Daje tak¿e mo¿liwo¶æ uaktualniania pakietów i instalowania nowych.
 %patch -p1
 
 %build
-make CFLAGS="$RPM_OPT_FLAGS" LDFLAGS=-s
+%{__make} CFLAGS="$RPM_OPT_FLAGS" LDFLAGS=-s
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_sysconfdir}/X11/wmconfig
 
-make install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install DESTDIR=$RPM_BUILD_ROOT
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/X11/wmconfig/glint
 
