@@ -39,7 +39,7 @@ make install DESTDIR=$RPM_BUILD_ROOT
 
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/X11/wmconfig/glint
 
-strip $RPM_BUILD_ROOT/usr/lib/python1.5/lib-dynload/*
+strip $RPM_BUILD_ROOT%{_libdir}/python1.5/lib-dynload/*
 
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man8/*
 
@@ -48,9 +48,9 @@ gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man8/*
 %config(missingok) /etc/X11/wmconfig/glint
 
 %attr(755,root,root) /usr/bin/glint
-%attr(755,root,root) /usr/lib/python1.5/lib-dynload/*
-/usr/lib/rhs/glint
-/usr/lib/rhs/control-panel/*
+%attr(755,root,root) %{_libdir}/python1.5/lib-dynload/*
+%{_libdir}/rhs/glint
+%{_libdir}/rhs/control-panel/*
 %{_mandir}/man8/*
 
 %changelog
