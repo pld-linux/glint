@@ -2,7 +2,7 @@ Summary:	Graphical front-end for RPM
 Summary(pl):	Graficzna nak³adka na RPM
 Name:		glint
 Version:	2.6.1
-Release:	2d
+Release:	3
 Copyright:	GPL
 Group:		Utilities/System
 Group(pl):	Narzêdzia/System
@@ -29,8 +29,7 @@ tak¿e mo¿liwo¶æ uaktualniania pakietów i instalowania nowych.
 %patch -p1
 
 %build
-CFLAGS="$RPM_OPT_FLAGS" LDFLAGS=-s \
-make
+make CFLAGS="$RPM_OPT_FLAGS" LDFLAGS=-s
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -48,16 +47,18 @@ gzip -9nf $RPM_BUILD_ROOT/usr/man/man8/*
 %defattr(644,root,root,755)
 %config(missingok) /etc/X11/wmconfig/glint
 
-%attr(755,root, root) /usr/bin/glint
-
+%attr(755,root,root) /usr/bin/glint
+%attr(755,root,root) /usr/lib/python1.5/lib-dynload/*
 /usr/lib/rhs/glint
 /usr/lib/rhs/control-panel/*
-
-%attr(755,root,root) /usr/lib/python1.5/lib-dynload/*
-%attr(644,root, man) /usr/man/man8/*
+/usr/man/man8/*
 
 %changelog
-* Tue Feb  9 1999 Micha³ Kuratczyk <kurkens@polbox.com>
+* Thu Apr 15 1999 Micha³ Kuratczyk <kura@pld.org.pl>
+  [2.6-3]
+- removed man group from man pages
+
+* Tue Feb  9 1999 Micha³ Kuratczyk <kura@pld.org.pl>
   [2.6-2d]
 - added using $RPM_OPT_FLAGS and LDFLAGS=-s
 - sloted BuildRoot into PLD standard
@@ -67,5 +68,5 @@ gzip -9nf $RPM_BUILD_ROOT/usr/man/man8/*
 - added "rm -rf $RPM_BUILD_ROOT" on top %install.
 - other cosmetic changes.
 
-* Sun Jan 24 1999 Micha³ Kuratczyk <kurkens@polbox.com>
+* Sun Jan 24 1999 Micha³ Kuratczyk <kura@pld.org.pl>
 - built for PLD
