@@ -47,7 +47,7 @@ gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man8/*
 %defattr(644,root,root,755)
 %config(missingok) /etc/X11/wmconfig/glint
 
-%attr(755,root,root) /usr/bin/glint
+%attr(755,root,root) %{_bindir}/glint
 %attr(755,root,root) %{_libdir}/python1.5/lib-dynload/*
 %{_libdir}/rhs/glint
 %{_libdir}/rhs/control-panel/*
