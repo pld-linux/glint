@@ -29,7 +29,7 @@ Daje tak¿e mo¿liwo¶æ uaktualniania pakietów i instalowania nowych.
 
 %prep
 %setup -q
-%patch -p1
+%patch0 -p1
 
 %build
 %{__make} CFLAGS="%{rpmcflags}" LDFLAGS="%{rpmldflags}"
