@@ -1,5 +1,5 @@
 Summary:	Graphical front-end for RPM
-Summary(pl):	Graficzna nak≥adka na RPM
+Summary(pl.UTF-8):   Graficzna nak≈Çadka na RPM
 Name:		glint
 Version:	2.6.1
 Release:	3
@@ -22,10 +22,10 @@ allows you to browse packages installed on your system, verify and
 query those package. It allows allows you to update packages with new
 versions and install new packages.
 
-%description -l pl
-Glint jest graficznym interfejsem dla RPM. Pozwala na przegl±danie
-pakietÛw zainstalowanych w systemie, ich weryfikowanie i odpytywanie.
-Daje takøe moøliwo∂Ê uaktualniania pakietÛw i instalowania nowych.
+%description -l pl.UTF-8
+Glint jest graficznym interfejsem dla RPM. Pozwala na przeglƒÖdanie
+pakiet√≥w zainstalowanych w systemie, ich weryfikowanie i odpytywanie.
+Daje tak≈ºe mo≈ºliwo≈õƒá uaktualniania pakiet√≥w i instalowania nowych.
 
 %prep
 %setup -q
