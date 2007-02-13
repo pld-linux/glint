@@ -1,5 +1,5 @@
 Summary:	Graphical front-end for RPM
-Summary(pl.UTF-8):   Graficzna nakładka na RPM
+Summary(pl.UTF-8):	Graficzna nakładka na RPM
 Name:		glint
 Version:	2.6.1
 Release:	3
